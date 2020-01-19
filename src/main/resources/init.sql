@@ -1,0 +1,22 @@
+CREATE DATABASE IF NOT EXISTS jd2_homework5_6;
+CREATE TABLE user_group
+(
+id INT PRIMARY KEY AUTO_INCREMENT,
+  name VARCHAR(100) NOT NULL
+);
+CREATE TABLE user
+(
+id INT PRIMARY KEY AUTO_INCREMENT,
+  username VARCHAR(40) NOT NULL,
+  password VARCHAR(40) NOT NULL,
+  is_active BOOLEAN NOT NULL DEFAULT TRUE,
+  user_group_id INT,
+  age INT NOT NULL,
+FOREIGN KEY(user_group_id)REFERENCES user_group(id)
+);
+CREATE TABLE user_information
+(
+user_id INT PRIMARY KEY NOT NULL,
+  address   VARCHAR(100) NOT NULL,
+  telephone VARCHAR(40) NOT NULL
+);
